@@ -1,0 +1,264 @@
+{
+  "name": "shared-todo-tasks",
+  "displayName": "Shared Todo Tasks",
+  "description": "Shared realtime todo tasks for teams and friends.",
+  "version": "1.1.4",
+  "publisher": "ruwis",
+  "license": "MIT",
+  "keywords": [
+    "todo",
+    "task",
+    "notes",
+    "firebase",
+    "realtime",
+    "sync",
+    "collaboration"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruwis/shared-todo-tasks"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:sharedTodoTasks.overviewView",
+    "onView:sharedTodoTasks.todoView",
+    "onCommand:sharedTodoTasks.addTodo",
+    "onCommand:sharedTodoTasks.refreshTodos",
+    "onCommand:sharedTodoTasks.openSettings",
+    "onCommand:sharedTodoTasks.selectSound",
+    "onCommand:sharedTodoTasks.testSound",
+    "onCommand:sharedTodoTasks.openProjects",
+    "onCommand:sharedTodoTasks.configureFirebase",
+    "onCommand:sharedTodoTasks.copyFirebaseRules",
+    "onCommand:sharedTodoTasks.createBucket",
+    "onCommand:sharedTodoTasks.toggleTodoItem",
+    "onCommand:sharedTodoTasks.editTodoItem",
+    "onCommand:sharedTodoTasks.deleteTodoItem"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sharedTodoTasks.addTodo",
+        "title": "Shared Todo Tasks: Add Todo",
+        "icon": "$(add)"
+      },
+      {
+        "command": "sharedTodoTasks.refreshTodos",
+        "title": "Shared Todo Tasks: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "sharedTodoTasks.openSettings",
+        "title": "Shared Todo Tasks: Open Settings",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "sharedTodoTasks.selectSound",
+        "title": "Shared Todo Tasks: Select Sound",
+        "icon": "$(bell)"
+      },
+      {
+        "command": "sharedTodoTasks.testSound",
+        "title": "Shared Todo Tasks: Test Sound",
+        "icon": "$(play)"
+      },
+      {
+        "command": "sharedTodoTasks.openProjects",
+        "title": "Shared Todo Tasks: Projects",
+        "icon": "$(folder-library)"
+      },
+      {
+        "command": "sharedTodoTasks.configureFirebase",
+        "title": "Shared Todo Tasks: Configure Sync",
+        "icon": "$(plug)"
+      },
+      {
+        "command": "sharedTodoTasks.copyFirebaseRules",
+        "title": "Shared Todo Tasks: Copy Database Rules",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "sharedTodoTasks.createBucket",
+        "title": "Shared Todo Tasks: Create Project",
+        "icon": "$(new-folder)"
+      },
+      {
+        "command": "sharedTodoTasks.toggleTodoItem",
+        "title": "Shared Todo Tasks: Complete / Reopen",
+        "icon": "$(check)"
+      },
+      {
+        "command": "sharedTodoTasks.editTodoItem",
+        "title": "Shared Todo Tasks: Edit",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "sharedTodoTasks.deleteTodoItem",
+        "title": "Shared Todo Tasks: Delete",
+        "icon": "$(trash)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sharedTodoTasks",
+          "title": "Shared Todo Tasks",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "sharedTodoTasks": [
+        {
+          "type": "webview",
+          "id": "sharedTodoTasks.overviewView",
+          "name": "Overview"
+        },
+        {
+          "type": "webview",
+          "id": "sharedTodoTasks.todoView",
+          "name": "Todo List"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "sharedTodoTasks.openProjects",
+          "when": "view == sharedTodoTasks.overviewView",
+          "group": "navigation"
+        },
+        {
+          "command": "sharedTodoTasks.configureFirebase",
+          "when": "view == sharedTodoTasks.overviewView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "sharedTodoTasks.openSettings",
+          "when": "view == sharedTodoTasks.overviewView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "sharedTodoTasks.selectSound",
+          "when": "view == sharedTodoTasks.overviewView",
+          "group": "navigation@3"
+        },
+        {
+          "command": "sharedTodoTasks.refreshTodos",
+          "when": "view == sharedTodoTasks.todoView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "sharedTodoTasks.openProjects",
+          "when": "view == sharedTodoTasks.todoView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "sharedTodoTasks.configureFirebase",
+          "when": "view == sharedTodoTasks.todoView",
+          "group": "navigation@3"
+        },
+        {
+          "command": "sharedTodoTasks.selectSound",
+          "when": "view == sharedTodoTasks.todoView",
+          "group": "navigation@4"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Shared Todo Tasks",
+      "properties": {
+        "sharedTodoTasks.identity.deviceName": {
+          "type": "string",
+          "default": "",
+          "maxLength": 15,
+          "description": "Optional device name shown on shared todo activity. Leave empty to use the system name. Letters, numbers, and '-' are supported."
+        },
+        "sharedTodoTasks.language": {
+          "type": "string",
+          "default": "en",
+          "enum": [
+            "en",
+            "tr",
+            "es",
+            "de",
+            "fr"
+          ],
+          "enumDescriptions": [
+            "English",
+            "Turkish",
+            "Spanish",
+            "German",
+            "French"
+          ],
+          "description": "Shared Todo Tasks display language."
+        },
+        "sharedTodoTasks.firebase.databaseUrl": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Firebase Realtime Database URL. Example: `https://xxxxx-default-rtdb.firebaseio.com`."
+        },
+        "sharedTodoTasks.notifications.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "When enabled, todo changes show notifications and play sounds. When disabled, both are off."
+        },
+        "sharedTodoTasks.sounds.added": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for added todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        },
+        "sharedTodoTasks.sounds.removed": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for deleted todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        },
+        "sharedTodoTasks.sounds.started": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for todos moved to in-progress. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        },
+        "sharedTodoTasks.sounds.stopped": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for todos removed from in-progress. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        },
+        "sharedTodoTasks.sounds.completed": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for completed todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        },
+        "sharedTodoTasks.sounds.reopened": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for reopened todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        },
+        "sharedTodoTasks.sounds.updated": {
+          "type": "string",
+          "default": "builtin:xp",
+          "markdownDescription": "Sound for updated todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@vscode/codicons": "^0.0.36"
+  }
+}
