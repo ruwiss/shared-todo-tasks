@@ -1,9 +1,10 @@
 {
-  "name": "shared-todo-tasks",
-  "displayName": "Shared Todo Tasks",
-  "description": "Shared realtime todo tasks for teams and friends.",
+  "name": "shared-todo-taskboard",
+  "displayName": "Shared Todo Taskboard",
+  "description": "Realtime shared todo taskboard for VS Code with Firebase sync, team task collaboration, notifications, custom sounds, images, and multilingual support.",
   "version": "1.1.4",
-  "publisher": "ruwis",
+  "publisher": "Ruwiss",
+  "icon": "media/icon.png",
   "license": "MIT",
   "keywords": [
     "todo",
@@ -16,7 +17,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ruwis/shared-todo-tasks"
+    "url": "https://github.com/ruwiss/shared-todo-tasks"
+  },
+  "homepage": "https://github.com/ruwiss/shared-todo-tasks#readme",
+  "bugs": {
+    "url": "https://github.com/ruwiss/shared-todo-tasks/issues"
   },
   "engines": {
     "vscode": "^1.90.0"
@@ -46,62 +51,62 @@
     "commands": [
       {
         "command": "sharedTodoTasks.addTodo",
-        "title": "Shared Todo Tasks: Add Todo",
+        "title": "Shared Todo Taskboard: Add Todo",
         "icon": "$(add)"
       },
       {
         "command": "sharedTodoTasks.refreshTodos",
-        "title": "Shared Todo Tasks: Refresh",
+        "title": "Shared Todo Taskboard: Refresh",
         "icon": "$(refresh)"
       },
       {
         "command": "sharedTodoTasks.openSettings",
-        "title": "Shared Todo Tasks: Open Settings",
+        "title": "Shared Todo Taskboard: Open Settings",
         "icon": "$(gear)"
       },
       {
         "command": "sharedTodoTasks.selectSound",
-        "title": "Shared Todo Tasks: Select Sound",
+        "title": "Shared Todo Taskboard: Select Sound",
         "icon": "$(bell)"
       },
       {
         "command": "sharedTodoTasks.testSound",
-        "title": "Shared Todo Tasks: Test Sound",
+        "title": "Shared Todo Taskboard: Test Sound",
         "icon": "$(play)"
       },
       {
         "command": "sharedTodoTasks.openProjects",
-        "title": "Shared Todo Tasks: Projects",
+        "title": "Shared Todo Taskboard: Projects",
         "icon": "$(folder-library)"
       },
       {
         "command": "sharedTodoTasks.configureFirebase",
-        "title": "Shared Todo Tasks: Configure Sync",
+        "title": "Shared Todo Taskboard: Configure Sync",
         "icon": "$(plug)"
       },
       {
         "command": "sharedTodoTasks.copyFirebaseRules",
-        "title": "Shared Todo Tasks: Copy Database Rules",
+        "title": "Shared Todo Taskboard: Copy Database Rules",
         "icon": "$(copy)"
       },
       {
         "command": "sharedTodoTasks.createBucket",
-        "title": "Shared Todo Tasks: Create Project",
+        "title": "Shared Todo Taskboard: Create Project",
         "icon": "$(new-folder)"
       },
       {
         "command": "sharedTodoTasks.toggleTodoItem",
-        "title": "Shared Todo Tasks: Complete / Reopen",
+        "title": "Shared Todo Taskboard: Complete / Reopen",
         "icon": "$(check)"
       },
       {
         "command": "sharedTodoTasks.editTodoItem",
-        "title": "Shared Todo Tasks: Edit",
+        "title": "Shared Todo Taskboard: Edit",
         "icon": "$(edit)"
       },
       {
         "command": "sharedTodoTasks.deleteTodoItem",
-        "title": "Shared Todo Tasks: Delete",
+        "title": "Shared Todo Taskboard: Delete",
         "icon": "$(trash)"
       }
     ],
@@ -109,7 +114,7 @@
       "activitybar": [
         {
           "id": "sharedTodoTasks",
-          "title": "Shared Todo Tasks",
+          "title": "Shared Todo Taskboard",
           "icon": "media/icon.svg"
         }
       ]
@@ -173,7 +178,7 @@
       ]
     },
     "configuration": {
-      "title": "Shared Todo Tasks",
+      "title": "Shared Todo Taskboard",
       "properties": {
         "sharedTodoTasks.identity.deviceName": {
           "type": "string",
@@ -198,7 +203,7 @@
             "German",
             "French"
           ],
-          "description": "Shared Todo Tasks display language."
+          "description": "Shared Todo Taskboard display language."
         },
         "sharedTodoTasks.firebase.databaseUrl": {
           "type": "string",
@@ -213,37 +218,37 @@
         "sharedTodoTasks.sounds.added": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for added todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for added todos. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         },
         "sharedTodoTasks.sounds.removed": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for deleted todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for deleted todos. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         },
         "sharedTodoTasks.sounds.started": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for todos moved to in-progress. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for todos moved to in-progress. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         },
         "sharedTodoTasks.sounds.stopped": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for todos removed from in-progress. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for todos removed from in-progress. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         },
         "sharedTodoTasks.sounds.completed": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for completed todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for completed todos. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         },
         "sharedTodoTasks.sounds.reopened": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for reopened todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for reopened todos. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         },
         "sharedTodoTasks.sounds.updated": {
           "type": "string",
           "default": "builtin:xp",
-          "markdownDescription": "Sound for updated todos. Use `Shared Todo Tasks: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
+          "markdownDescription": "Sound for updated todos. Use `Shared Todo Taskboard: Select Sound` to choose a file, or set `builtin:xp`, `none`, or an absolute `.mp3`/`.wav` path."
         }
       }
     }

@@ -174,7 +174,7 @@ export class SidebarViewProvider implements vscode.WebviewViewProvider, vscode.D
       padding: 0 10px;
     }
   </style>
-  <title>Shared Todo Tasks Overview</title>
+  <title>Shared Todo Taskboard Overview</title>
 </head>
 <body>
   <div id="app"></div>
@@ -197,7 +197,7 @@ export class SidebarViewProvider implements vscode.WebviewViewProvider, vscode.D
       'sidebar.noActivity': 'No activity yet',
       'sidebar.projects': 'Projects',
       'sidebar.status': 'Status',
-      'webview.firebaseIntroBody': 'Shared Todo Tasks needs a Realtime Database URL to sync todos. If you already have one, continue configuration.',
+      'webview.firebaseIntroBody': 'Shared Todo Taskboard needs a Realtime Database URL to sync todos. If you already have one, continue configuration.',
       'webview.firebaseIntroTitle': 'Firebase is not connected',
       'webview.openProjects': 'Open Projects',
       'webview.openSettings': 'Open Settings',

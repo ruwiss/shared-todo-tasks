@@ -12,7 +12,7 @@ const fallbackMessages = {
   'webview.edit': 'Edit',
   'webview.configureFirebase': 'Configure Firebase',
   'webview.firebaseBody': 'Paste your Firebase Realtime Database URL. If this is a new database, copy the rules below in Firebase Console first.',
-  'webview.firebaseIntroBody': 'Shared Todo Tasks needs a Realtime Database URL to sync todos. If you already have one, continue configuration.',
+  'webview.firebaseIntroBody': 'Shared Todo Taskboard needs a Realtime Database URL to sync todos. If you already have one, continue configuration.',
   'webview.firebaseIntroTitle': 'Firebase is not connected',
   'webview.firebaseRulesBody': 'Use these rules for personal/shared access without auth. Anyone with the URL can read and write.',
   'webview.firebaseRulesTitle': 'Realtime Database rules',

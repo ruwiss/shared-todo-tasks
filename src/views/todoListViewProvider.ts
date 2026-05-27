@@ -199,7 +199,7 @@ export class TodoListViewProvider implements vscode.WebviewViewProvider, vscode.
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="${codiconUri}" />
   <link rel="stylesheet" href="${styleUri}" />
-  <title>Shared Todo Tasks</title>
+  <title>Shared Todo Taskboard</title>
 </head>
 <body>
   <div id="app"></div>
